@@ -5,7 +5,7 @@ const _ = require('lodash')
 app.on('ready', () => {
 
   let displays = electron.screen.getAllDisplays()
-  console.log(displays)
+  //console.log(displays)
 
   displays = _.map(displays, display => {
 
@@ -40,12 +40,16 @@ app.on('ready', () => {
     _.each(displays, display => {
 
       let bounds = display.bounds
+      let cont = display.content
 
-      if (display.content) display.content.sendInputEvent({ type: "mouseMove", x: mouse.x - bounds.x, y: mouse.y })
+      if (display.content) {
+        //cont.sendInputEvent({ type: "mouseMove", x: mouse.x - bounds.x, y: mouse.y - bounds.y })
+        cont.send('mousePosition', { x: mouse.x - bounds.x, y: mouse.y - bounds.y })
+      }
     })
     // console.log("Mouse is at x:" + mouse.x + " y:" + mouse.y);
 
-    setTimeout(sendMouse, 10)
+    setTimeout(sendMouse, 15)
   }
   sendMouse()
 

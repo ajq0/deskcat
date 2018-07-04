@@ -2,13 +2,16 @@
   "name": "electron_with_p5",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electromon ."
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
+    "electromon": "^1.0.10",
     "electron": "^2.0.4",
     "lodash": "^4.17.10"
   }
